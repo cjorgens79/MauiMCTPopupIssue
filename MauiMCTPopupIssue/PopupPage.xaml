@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+           xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" ios:Page.PrefersHomeIndicatorAutoHidden="True"  ios:Page.PrefersStatusBarHidden="True" ios:Page.UseSafeArea="true"
+           x:Class="MauiMCTPopupIssue.PopupPage"
+           BackgroundColor="White">
+
+    <Border HorizontalOptions="Center" VerticalOptions="Center" Padding="0" Margin="0" BackgroundColor="White">
+        <Grid Padding="0" Margin="0">
+            <StackLayout x:Name="layoutPopup" BackgroundColor="White" MaximumWidthRequest="500" Padding="8,8,8,8" Margin="0">
+
+                <Grid x:Name="gridMessage">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <HorizontalStackLayout>
+                        <Label x:Name="lblHeader" Grid.Row="0" Text="{Binding Title}" TextColor="DarkSlateGray" FontSize="18" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+                        <BoxView Grid.Row="0" BackgroundColor="Black" HeightRequest="1"></BoxView>
+                    </HorizontalStackLayout>
+
+                    <ScrollView Grid.Row="1">
+                        <Label x:Name="lblBody" TextColor="Black" FontSize="14" Text="{Binding Message}"></Label>
+                    </ScrollView>
+                </Grid>
+
+                <Grid x:Name="gridButtons" BackgroundColor="Transparent" Margin="0,16,0,0" ColumnSpacing="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Grid.Column="0" Text="Yes" FontSize="14" Padding="4,0,4,0" Margin="0" BackgroundColor="White" TextColor="Black" HorizontalOptions="End" MinimumWidthRequest="80"  MinimumHeightRequest="32" Clicked="Yes_Clicked"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="No" FontSize="14" Padding="4,0,4,0" Margin="0" BackgroundColor="White" TextColor="Black" MinimumWidthRequest="80" MinimumHeightRequest="32" Clicked="No_Clicked"/>
+                    <Button Grid.Row="0" Grid.Column="2" Text="Cancel" FontSize="14" Padding="4,0,4,0" Margin="0" BackgroundColor="White" TextColor="Black" MinimumWidthRequest="80"  MinimumHeightRequest="32" Clicked="Cancel_Clicked"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </Border>
+</mct:Popup>
